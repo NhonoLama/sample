@@ -1,39 +1,42 @@
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-
-interface myProp {
-  fn: string;
-  ln: string;
-}
-
-const MyName = (props: myProp) => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>
-        My name is {props.fn} {props.ln}.
-      </Text>
-    </View>
-  );
-};
+import HomeScreen from './screens/HomeScreen';
+import {ProfileScreen} from './screens/ProfileScreen';
+import TypeScreen from './screens/TypeScreen';
+import {RootStackParams} from './types/navigation';
+import GestureScreen from './screens/GestureScreen';
 
 const App = () => {
-  const firstName = 'Dawa';
-  const lastName = 'Lama';
-  return <MyName fn={firstName} ln={lastName} />;
+  // const firstName = 'Dawa';
+  // const lastName = 'Lama';
+  const Stack = createNativeStackNavigator<RootStackParams>();
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{title: 'welcome'}}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{title: 'pic'}}
+        />
+        <Stack.Screen
+          name="TypeTest"
+          component={TypeScreen}
+          options={{title: 'type anything'}}
+        />
+        <Stack.Screen
+          name="GestureTests"
+          component={GestureScreen}
+          options={{title: 'All Gestures'}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  text: {
-    fontWeight: 'bold',
-    fontSize: 30,
-    color: '#000',
-  },
-});
 
 export default App;
