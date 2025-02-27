@@ -26,8 +26,7 @@ const DragScreen = () => {
       style={[styles.box, {left: position.x, top: position.y}]}
       onStartShouldSetResponder={onStart}
       onMoveShouldSetResponder={onMove}
-      onResponderMove={onResponderMove} // Move the box as the user drags
-    >
+      onResponderMove={onResponderMove}>
       <Text>Drag me!</Text>
     </View>
   );

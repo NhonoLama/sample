@@ -25,6 +25,24 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
           onPress={() => navigation.navigate('GestureTests')}
         />
       </View>
+      <View style={styles.btn}>
+        <Button
+          title="API Tutorial"
+          onPress={() => navigation.navigate('ApiTest')}
+        />
+      </View>
+      <View style={styles.btn}>
+        <Button
+          title="Access Tutorial"
+          onPress={() => navigation.navigate('AccessTest')}
+        />
+      </View>
+      <View style={styles.btn}>
+        <Button
+          title="Aniamtion Tutorial"
+          onPress={() => navigation.navigate('AnimationTest')}
+        />
+      </View>
     </View>
   );
 };
